@@ -55,7 +55,7 @@ $r->addRoute("abm_admin", "GET" , "controller_administrador", "show_abm_admin" )
 
 $r->addRoute("borrar_u/:ID", "GET", "controller_administrador", "borrarUsuario"); 
 
-$r->addRoute("editar_u/:ID", "GET", "controller_administrador", "borrarUsuario"); 
+$r->addRoute("editar_u/:ID", "GET", "controller_administrador", "designar_administrador"); 
 
 
 // sin login

@@ -21,6 +21,7 @@ class controller_administrador
     {
         $this->helper->checkAdmin();
         $usuario = $this->model->getUsuarios();
+        // para limpiar url
         $this->view->show_usuarios($usuario);
     }
 
@@ -30,27 +31,19 @@ class controller_administrador
         $this->helper->checkAdmin();
         $id = $params[':ID'];
         $this->model->borrarUsuario($id);
-        $this->show_abm_admin();
+        $this->limpiarURL();
     }
 
-    /*
 
-    function actualizarProducto($params = null)
+    function designar_administrador($params = null)
     {
         $this->helper->checkAdmin();
-
-        $id = $_POST['input_id'];
-        $producto = $_POST['input_producto'];
-        $descripcion = $_POST['input_descripcion'];
-        $precio_1kg = $_POST['input_precio_1kg'];
-        $precio_500g = $_POST['input_precio_500g'];
-        $precio_250g = $_POST['input_precio_250g'];
-        $categoria = $_POST['input_categoria'];
-
-        print_r($categoria);
-        $this->model->actualizarProducto($producto, $descripcion, $precio_1kg, $precio_500g, $precio_250g, $categoria, $id);
-        $this->view->volverABM();
+        $id = $params[':ID'];
+        $this->model->designar_administrador($id);
+        $this->limpiarURL();
     }
 
-    */
+    function limpiarURL(){
+       header("Location:" . BASE_URL . "abm_admin");
+    }
 }
