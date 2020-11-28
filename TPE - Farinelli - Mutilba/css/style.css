@@ -298,27 +298,35 @@ th {
 .contacto {
     display: flex;
     justify-content: center;
+    margin: 2em;
     width: 100%;
 }
 
 .contacto_interior {
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     background-color: rgba(20, 2, 2, 0.068);
+    height: 40%;
     border-radius: 30px;
 }
 
 .contacto_interior>form {
-    padding: 20px;
+    padding: 5px 20px;
     border-radius: 30px;
     width: 100%;
+}
+
+.contacto>form {
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .contacto>form>input,
-.contacto>form>button,
-.contacto_interior>button {
+.contacto>form>button {
     margin: 5px;
     border-radius: 0.625rem;
     height: 1.875rem;
@@ -524,6 +532,10 @@ th {
     .div_tabla {
         display: flex;
         justify-content: center;
+    }
+    .div_tabla>button {
+        margin: 10px;
+        padding: 5px;
     }
     .div_botones {
         display: flex;
