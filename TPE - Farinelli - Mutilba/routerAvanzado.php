@@ -5,6 +5,7 @@ require_once 'control/controller_nosotros.php';
 require_once 'control/controller_contacto.php';
 require_once 'control/controller_login.php';
 require_once 'control/controller_categorias.php';
+require_once 'control/controller_administrador.php';
 
 require_once 'RouterClass.php';
 
@@ -29,6 +30,13 @@ $r->addRoute("verificacion", "POST", "controller_login", "verificarUsuario");
 
 $r->addRoute("logout", "GET", "controller_login", "logout");
 
+//registracion
+
+$r->addRoute("registrarse", "GET" , "controller_login" , "registrarse" );
+
+$r->addRoute("input_registro", "POST" , "controller_login" , "input_registro" );
+
+
 //productos con admin
 
 $r->addRoute("abm", "GET", "controller_productos", "admin_abm"); //vista admin - ABM
@@ -40,6 +48,15 @@ $r->addRoute("borrar_p/:ID", "GET", "controller_productos", "borrarProducto");
 $r->addRoute("editar/:ID", "GET", "controller_productos", "show_form_editar");
 
 $r->addRoute("actualizar_p", "POST", "controller_productos", "actualizarProducto");
+
+// controller de admin
+
+$r->addRoute("abm_admin", "GET" , "controller_administrador", "show_abm_admin" );
+
+$r->addRoute("borrar_u/:ID", "GET", "controller_administrador", "borrarUsuario"); 
+
+$r->addRoute("editar_u/:ID", "GET", "controller_administrador", "borrarUsuario"); 
+
 
 // sin login
 

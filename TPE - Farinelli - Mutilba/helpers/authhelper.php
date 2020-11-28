@@ -12,6 +12,7 @@ class authhelper
         session_start();
         $_SESSION['USUARIO'] = $userFromDB->usuario;
         $_SESSION['LAST_ACTIVITY'] = time();
+        $_SESSION['ADMIN'] = $userFromDB->administrador;
     }
 
     function logout()
@@ -23,13 +24,14 @@ class authhelper
 
     function checkLogin()
     {
+
         if (session_status() != PHP_SESSION_ACTIVE)
             session_start();
 
         if (!isset($_SESSION['USUARIO'])) {
             header("Location:" . LOGIN);
         } else {
-            if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] > 1000) {
+            if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] > 10000) {
                 header("Location: " . LOGOUT);
                 die();
             } else {
@@ -42,6 +44,19 @@ class authhelper
     {
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
+        }
+    }
+
+    function checkAdmin()
+    {
+        $this->checkLogin();
+
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        if ($_SESSION['ADMIN'] == false) {
+            header("Location:" . BASE_URL . "productos");
         }
     }
 }

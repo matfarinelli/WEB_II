@@ -301,17 +301,24 @@ th {
     width: 100%;
 }
 
-.contacto>form {
-    padding: 20px;
+.contacto_interior {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(20, 2, 2, 0.068);
     border-radius: 30px;
-    width: 90%;
+}
+
+.contacto_interior>form {
+    padding: 20px;
+    border-radius: 30px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .contacto>form>input,
-.contacto>form>button {
+.contacto>form>button,
+.contacto_interior>button {
     margin: 5px;
     border-radius: 0.625rem;
     height: 1.875rem;

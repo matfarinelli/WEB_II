@@ -29,21 +29,21 @@ class controller_categorias
 
     function addCategoria()
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
         $this->model->addCategoria(($_POST['input_categoria'])); //recibe los datos del form.
         $this->view->volverABM();
     }
 
     function admin_abm()
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
         $categorias = $this->model->getTabla();
         $this->view->show_abm_categorias($categorias);
     }
 
     function borrarCategoria($params = null)
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
         $id = $params[':ID'];
         $this->model_p->deleteProductoCat($id);
         $this->model->deleteCategoria($id);
@@ -52,7 +52,7 @@ class controller_categorias
 
     function actualizarCategoria($params = null)
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
 
         $id = $_POST['input_id'];
         $categoria = $_POST['input_categoria'];

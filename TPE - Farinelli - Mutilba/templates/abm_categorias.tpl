@@ -4,6 +4,9 @@
     <button>
         <a href='abm'>Productos</a>
     </button>
+    <button>
+        <a href='abm_admin'>Usuarios</a>
+    </button>
 </div>
 
 <div class="div_tabla">

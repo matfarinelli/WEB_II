@@ -24,15 +24,14 @@ class controller_productos
         $this->helper->getLoggedUserName();
         $frutos = $this->model->getTabla();
         $categoria = $this->model_cat->getTabla(); // se pide al model que nos envie los datos y guardamos en un parámetro
-        $this->view->show_productos($frutos , $categoria );
-
+        $this->view->show_productos($frutos, $categoria);
     }
 
     function productosPorCategoria()
     {
         $this->helper->getLoggedUserName();
         $id = $_POST['input_categoria'];
-        
+
         $frutos = $this->model->verCategoria($id);
         // se pide al model que nos envie los datos y guardamos en un parámetro
         $this->view->show_productos_ordenados($frutos);
@@ -49,15 +48,16 @@ class controller_productos
 
     function addProducto()
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
 
         $this->model->addProducto(($_POST['input_producto']), ($_POST['input_precio_1kg']), isset($_POST['input_precio_500g']), ($_POST['input_precio_250g']), ($_POST['input_categoria'])); //recibe los datos del form.
 
         $this->view->volverABM();
     }
+
     function borrarProducto($params = null)
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
         $id = $params[':ID'];
         $this->model->deleteProducto($id);
         $this->view->volverABM();
@@ -65,7 +65,7 @@ class controller_productos
 
     function actualizarProducto($params = null)
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
 
         $id = $_POST['input_id'];
         $producto = $_POST['input_producto'];
@@ -84,7 +84,7 @@ class controller_productos
     //ok - vista editor
     function admin_abm()
     {
-        $this->helper->checkLogin();
+        $this->helper->checkAdmin();
         $frutos = $this->model->getTabla();
         $categoria = $this->model_cat->getTabla();
         $this->view->show_agregar($frutos, $categoria);

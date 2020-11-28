@@ -34,8 +34,10 @@ class controller_login
             if ((isset($userFromDB)) && ($userFromDB)) {
                 $password = $userFromDB->password;
                 if (password_verify($contrasena, $password)) {
+
                     $this->helper->login($userFromDB);
                     header("Location:" . BASE_URL . "abm");
+                    
                 } else {
                     $this->view->show_login("Contraseña incorrecta");
                 }
@@ -48,5 +50,38 @@ class controller_login
     function logout()
     {
         $this->helper->logout();
+    }
+
+
+    function registrarse()
+    {
+        $this->view->show_registro();
+    }
+
+    function input_registro()
+    {
+        $usuario = $_POST['user'];
+        $mail = $_POST['mail'];
+        $contrasena = $_POST['contrasena'];
+
+        $hash = password_hash($contrasena, PASSWORD_DEFAULT);
+
+        if (isset($usuario)) {
+            $userFromDB = $this->model->getUser($usuario);
+
+            if ((isset($userFromDB)) && ($userFromDB)) {
+                $this->view->show_login("Usuario ya registrado");
+            } else {
+                $this->model->registrarse($usuario, $mail, $hash);
+
+                $userFromDB = $this->model->getUser($usuario);
+
+                $this->helper->login($userFromDB);
+
+                // VER!!!
+
+                header("Location:" . BASE_URL . "productos");
+            }
+        }
     }
 }
