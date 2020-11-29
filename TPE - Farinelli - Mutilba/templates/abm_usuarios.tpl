@@ -30,6 +30,7 @@
     
                     <td><button><a href="borrar_u/{$user->id_user}">Eliminar</a></button></td>
                     <td><button><a href="editar_u/{$user->usuario}">Administrador</a></button></td>
+                    <td><label class="switch"> <input type="checkbox" id="boton_adm" checked value="1"> <span class="slider round" ></span> </label></td>
                 </tr>
             {/foreach}
         </tbody>

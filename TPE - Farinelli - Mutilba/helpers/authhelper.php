@@ -13,6 +13,7 @@ class authhelper
         $_SESSION['USUARIO'] = $userFromDB->usuario;
         $_SESSION['LAST_ACTIVITY'] = time();
         $_SESSION['ADMIN'] = $userFromDB->administrador;
+        $_SESSION['ID_USUARIO'] = $userFromDB->id_user;
     }
 
     function logout()

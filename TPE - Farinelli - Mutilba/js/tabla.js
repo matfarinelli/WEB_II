@@ -8,4 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
         $(".panelE").slideToggle("slow");
     });
 
+  
+
+    let id_producto = document.querySelector('#id_producto').value;
+    console.log(id_producto);
+
 })

@@ -78,7 +78,7 @@ class controller_login
 
                 $this->helper->login($userFromDB);
 
-                // VER!!!
+               
 
                 header("Location:" . BASE_URL . "productos");
             }

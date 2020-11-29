@@ -86,7 +86,11 @@ $r->addRoute("nosotros", "GET", "controller_nosotros", "nosotros");
 //contacto
 $r->addRoute("contacto", "GET", "controller_contacto", "contacto");
 
-//Esto lo veo en View
+//comentarios
+
+$r->addRoute("agregar_comentarios", "POST", "controller_productos", "addComentarios");
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
+
+

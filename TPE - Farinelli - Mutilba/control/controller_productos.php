@@ -3,11 +3,12 @@
 require_once './view/view_productos.php';
 require_once './model/model_productos.php';
 require_once './helpers/authhelper.php';
-
+require_once './model/model_comentarios.php';
 class controller_productos
 {
     private $view;
     private $model;
+    private $model_comentarios;
     private $model_cat;
     private $helper;
 
@@ -15,6 +16,7 @@ class controller_productos
     {
         $this->view = new view_productos();
         $this->model = new model_productos();
+        $this->model_comentarios = new model_comentarios();
         $this->model_cat = new model_categorias();
         $this->helper = new authhelper();
     }
@@ -89,4 +91,27 @@ class controller_productos
         $categoria = $this->model_cat->getTabla();
         $this->view->show_agregar($frutos, $categoria);
     }
+
+    function addComentarios()
+    {
+        $this->helper->checkLogin();
+
+        $comentario = ($_POST['comentarios']);
+        $puntaje = ($_POST['puntaje']);
+        $id_user = ($_SESSION['ID_USUARIO']);
+        $id_producto = ($_POST['id_producto']) ;
+
+        /*
+        echo $comentario;
+        echo $puntaje;
+        echo $id_user;
+        echo $id_producto;
+        */ 
+        
+        $this->model_comentarios->addComentario($comentario, $puntaje , $id_user , $id_producto); //recibe los datos del form.
+
+        $this->verProducto();
+        
+    }
+
 }
