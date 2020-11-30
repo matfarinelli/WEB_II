@@ -43,7 +43,8 @@ class controller_administrador
         $this->limpiarURL();
     }
 
-    function limpiarURL(){
-       header("Location:" . BASE_URL . "abm_admin");
+    function limpiarURL()
+    {
+        header("Location:" . BASE_URL . "abm_admin");
     }
 }

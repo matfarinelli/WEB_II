@@ -57,7 +57,6 @@ $r->addRoute("borrar_u/:ID", "GET", "controller_administrador", "borrarUsuario")
 
 $r->addRoute("editar_u/:ID", "GET", "controller_administrador", "designar_administrador"); 
 
-
 // sin login
 
 $r->addRoute("productos", "GET", "controller_productos", "productos"); //tabla sin form
@@ -89,6 +88,9 @@ $r->addRoute("contacto", "GET", "controller_contacto", "contacto");
 //comentarios
 
 $r->addRoute("agregar_comentarios", "POST", "controller_productos", "addComentarios");
+
+$r->addRoute("borrar_comentario/:ID", "GET", "controller_productos", "borrarComentario");
+
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);

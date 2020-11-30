@@ -17,32 +17,29 @@ class model_comentarios
         $sentencia->execute(array($comentario, $puntaje, $id_user, $id_producto));
     }
 
-    /*
-  function getTabla()
+
+    function getComentarios($id)
     {
-        $sentencia = $this->db->prepare('SELECT * FROM categoria');
-        $sentencia->execute();
+        $sentencia = $this->db->prepare('SELECT * FROM comentarios INNER JOIN users ON comentarios.id_user = users.id_user WHERE id_producto=?');
+        $sentencia->execute(array($id));
 
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
-
-    
-
-
-    function deleteCategoria($id)
+    function borrarComentario($id)
     {
-                
-        $borrar = 'DELETE FROM categoria WHERE id_categoria=? ';
-        $sentencia = $this->db->prepare($borrar);
+        $sentencia = $this->db->prepare('DELETE FROM comentarios WHERE id=?');
         $sentencia->execute(array($id));
     }
 
-    
-    function actualizarCategoria($categoria, $id_categoria)
+
+    /*
+    function getComentarios()
     {
-        $update = 'UPDATE categoria SET nombre_categoria = ?  WHERE id_categoria=?';
-        $sentencia = $this->db->prepare($update);
-        $sentencia->execute(array($categoria, $id_categoria));
-    }*/
+        $sentencia = $this->db->prepare('SELECT * FROM comentarios INNER JOIN producto ON comentarios.id_producto = producto.id_producto');
+        $sentencia->execute(array());
+
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+    */
 }

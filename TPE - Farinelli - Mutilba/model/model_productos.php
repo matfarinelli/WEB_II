@@ -49,6 +49,7 @@ class model_productos
 
 
     function verProducto($id){
+        //INNER JOIN comentarios ON producto.id_producto = comentarios.id_producto 
         $sentencia = $this->db->prepare('SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE id_producto= ?');
         $sentencia->execute(array($id));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);

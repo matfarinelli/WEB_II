@@ -45,6 +45,41 @@
     </form>
 
 </div>
+
+
+
+<div>
+    <table>
+        <thead>
+            <th>Usuario</th>
+            <th>Comentario</th>
+            <th>Puntaje</th>
+            <th> </th>
+        </thead>
+
+        <tbody>
+            {foreach from=$comentarios item=comentario}
+                <tr>
+                    <td>
+                        {$comentario->usuario}
+                    </td>
+                    <td>
+                        {$comentario->comentario}
+                    </td>
+                    <td>
+                        {$comentario->puntaje}
+                    </td>
+                    <td>
+                        {if $smarty.session.ADMIN == 1}
+                            <button><a href="borrar_comentario/{$comentario->id}">Eliminar</a></button>
+                        {/if}
+                    </td>
+                </tr>
+            {/foreach}
+        <tbody>
+    </table>
+</div>
+
 <a class="volver" href='productos'> Volver </a>
 
 {include file="footer.tpl"}

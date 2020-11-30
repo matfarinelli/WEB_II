@@ -47,11 +47,12 @@ class view_productos
         $smarty->display('./templates/abm_productos.tpl');
     }
 
-    function verProducto($producto_individual)
+    function verProducto($producto_individual, $comentarios)
     {
         //print_r($frutos);
         $smarty = new Smarty();
         //asignar variables (assign)
+        $smarty->assign('comentarios', $comentarios);
         $smarty->assign('producto_individual', $producto_individual);
         //renderizar template
         $smarty->display('./templates/ver_producto.tpl');
