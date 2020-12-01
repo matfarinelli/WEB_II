@@ -64,11 +64,8 @@ class api_frutos_controller
 
     function borrarComentario($params = null)
     {
-
-
         // FALTAN CONTROLES DE ADMIN
         $id = $params[':ID'];
-
         $this->model->borrarComentario($id);
     }
 
@@ -83,24 +80,12 @@ class api_frutos_controller
         $id_user = $data->id_user;
         $id_producto = $data->id_producto;
 
-
         $ingresado = $this->model->addComentario($comentario, $puntaje, $id_user, $id_producto);
 
-        if ($ingresado)
-        {
+        if ($ingresado) {
             $this->view->response("Se agrego el comentario con id: {$ingresado}", 200);
-        }
-        else
-        {
+        } else {
             $this->view->response("El comentario no fue creado", 500);
         }
-
     }
-
-   
-            
-    
-
-
-
 }

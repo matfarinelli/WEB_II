@@ -42,9 +42,9 @@ class controller_productos
         $this->helper->getLoggedUserName();
         $id = $params[':ID'];
         $producto_individual = $this->model->verProducto($id);
-  
+
         $comentarios = $this->model_comentarios->getComentarios($id);
-      
+
         $this->view->verProducto($producto_individual, $comentarios);
     }
 
@@ -92,9 +92,4 @@ class controller_productos
         $categoria = $this->model_cat->getTabla();
         $this->view->show_agregar($frutos, $categoria);
     }
-
-   
-
-
-    
 }
