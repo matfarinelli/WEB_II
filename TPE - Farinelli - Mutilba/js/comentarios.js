@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-alert("hola mati");
+
 
 obtener_datos();
 
@@ -18,7 +18,7 @@ function obtener_datos() {
         .then(function(data) {
             
             console.log(data);
-          
+            "<p>"+data.comentario[0]+"</p>";
           
         })
         .catch(function(e) {
