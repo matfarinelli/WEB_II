@@ -532,9 +532,11 @@ th {
     .div_tabla {
         display: flex;
         align-items: center;
+      
         justify-content: center;
         flex-direction: column;
     }
+    
     .div_tabla>button {
         margin: 10px;
         padding: 5px;

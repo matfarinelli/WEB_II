@@ -1,7 +1,7 @@
 {include file="header.tpl" }
 <div class="div_tabla">
-   
-    <form action="agregar_comentarios" method="POST">
+
+    <form action="">
         <table>
 
             <thead>
@@ -18,7 +18,7 @@
 
                 {foreach from=$producto_individual item=producto}
                     <tr>
-                        <td name="id_producto">{$producto->id_producto}</td>
+                        <td name="id_producto" id="id_producto">{$producto->id_producto}</td>
                         <td>{$producto->nombre}</td>
                         <td>{$producto->descripcion}</td>
                         <td>{$producto->precio_kilo}</td>
@@ -31,17 +31,19 @@
             </tbody>
         </table>
 
-        <div><textarea name="comentarios" rows="5" cols="110">Escribe aquí tus comentarios</textarea></div>
+        <div>
+            <textarea id="input_comentarios" rows="5" cols="110" placeholder="escribe aqui tus comentarios"> </textarea>
+        </div>
         <label for="puntaje">Que puntaje le das???</label>
-        <select name='puntaje'>
+        <select id="input_puntaje">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <input type="hidden" name="id_producto" value="{$producto->id_producto}">
-        <button type="submit">Agregar</button>
+        <input id="input_id_producto" type="hidden" value="{$producto->id_producto}">
+        <button type="button" id="agregar_comentario">Agregar</button>
     </form>
 
 

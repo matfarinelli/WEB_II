@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-12-01 01:40:42
+  from 'C:\xampp\htdocs\matias\!! WEB II\TPE - Repositorio\WEB_II\TPE - Farinelli - Mutilba\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5fc5910a8e82a8_37555855',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '76d854722c852bca8258f6bf14203124246aba56' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\matias\\!! WEB II\\TPE - Repositorio\\WEB_II\\TPE - Farinelli - Mutilba\\templates\\header.tpl',
+      1 => 1606781062,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5fc5910a8e82a8_37555855 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -6,24 +29,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frutos Secos Tandil</title>
     <link rel="icon" href="imagenes/fruta.png" type="image/png" />
-    <base href="{BASE_URL}">
+    <base href="<?php echo BASE_URL;?>
+">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/nav.js" type="text/javascript"></script>
-    <script src="js/tabla.js" type="text/javascript"></script>
-    <script src="js/contacto.js" type="text/javascript"></script>
-    <script src="js/comentarios.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <?php echo '<script'; ?>
+ src="js/nav.js" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/tabla.js" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/contacto.js" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/comentarios.js" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"><?php echo '</script'; ?>
+>
+    
+
 </head>
 
 <body>
 
-    {if isset($smarty.session.USUARIO)}
+    <?php if ((isset($_SESSION['USUARIO']))) {?>
         <div class="boton_sesion">
-            <p>{$smarty.session.USUARIO}</p>
-            <input id="id_session" type="hidden" value="{$smarty.session.ADMIN}">
+            <p><?php echo $_SESSION['USUARIO'];?>
+</p>
             <a class="" href="logout">X</a>
         </div>
-    {/if}
+    <?php }?>
 
     <header class="logo">
         <img class="img_logo" src="imagenes/erahielo.png" alt="erahielo">
@@ -40,9 +76,9 @@
             <a class="menu_botones" href="nosotros">Nosotros</a>
             <a class="menu_botones" href="contacto">Contacto</a>
             <a class="menu_botones" href="login">Login</a>
-
+            
             <a class="menu_botones" href="abm">ABM</a>
-
+            
         </div>
     </nav>
 
@@ -56,4 +92,5 @@
         <li>
             <a href=" https://api.whatsapp.com/send?phone=5491124622673&text=&source=&data=&app_absent=" target=" _blank "><img class="boton_redes " src="imagenes/whatsapp.png " alt="whatsapp "></a>
         </li>
-    </ul>
+    </ul><?php }
+}

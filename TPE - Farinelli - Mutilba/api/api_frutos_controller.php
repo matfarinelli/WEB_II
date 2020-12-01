@@ -46,7 +46,7 @@ class api_frutos_controller
         if ($comentarios) {
             $this->view->response($comentarios, 200);
         } else {
-            $this->view->response("No existe el producto con el id={$id}", 404);
+            $this->view->response("No existe el productos con el id={$id}", 404);
         }
     }
     function getComentarioIndividual($params = null)

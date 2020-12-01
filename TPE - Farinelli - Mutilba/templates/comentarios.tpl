@@ -1,24 +1,19 @@
-<div class="div_tabla" id="div_comentarios">
-    <form action="eliminar_comentarios" method="POST">
+<div class="div_tabla">
+    <form action="">
         <table>
             <thead>
-                <th>Usuario</th>
+
                 <th>Comentario</th>
                 <th>Puntaje</th>
-                <th> </th>
             </thead>
 
-            <tbody>
-                {literal}
-                    <script>
-                        obtener_datos();
-                    </script>
-                {/literal}
+            <tbody class="body_tabla">
 
-
-            <tbody>
+            </tbody>
         </table>
     </form>
 </div>
+
+
 
 <a class="volver" href='productos'> Volver </a>
