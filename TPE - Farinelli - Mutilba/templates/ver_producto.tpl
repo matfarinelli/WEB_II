@@ -1,6 +1,6 @@
 {include file="header.tpl" }
 <div class="div_tabla">
-
+   
     <form action="agregar_comentarios" method="POST">
         <table>
 
@@ -31,7 +31,7 @@
             </tbody>
         </table>
 
-        <textarea name="comentarios" rows="5" cols="120">Escribe aquí tus comentarios</textarea>
+        <div><textarea name="comentarios" rows="5" cols="110">Escribe aquí tus comentarios</textarea></div>
         <label for="puntaje">Que puntaje le das???</label>
         <select name='puntaje'>
             <option value="1">1</option>
@@ -44,11 +44,12 @@
         <button type="submit">Agregar</button>
     </form>
 
+
 </div>
 
 
-
-<div>
+<div class="div_tabla">
+    <form action="eliminar_comentarios" method="POST">
     <table>
         <thead>
             <th>Usuario</th>
@@ -71,15 +72,22 @@
                     </td>
                     <td>
                         {if $smarty.session.ADMIN == 1}
-                            <button><a href="borrar_comentario/{$comentario->id}">Eliminar</a></button>
+
+                   <!--     <button><a href="borrar_comentario/{$comentario->id}">Eliminar</a></button> --> 
+                        <input type="hidden" name="id_producto" value="{$producto->id_producto}">
+                        <input type="hidden" name="id_comentario" value="{$comentario->id}">
+                        <button type="submit">Eliminar</button>
+   
                         {/if}
                     </td>
                 </tr>
             {/foreach}
         <tbody>
     </table>
+     </form>
 </div>
 
 <a class="volver" href='productos'> Volver </a>
+{include file="comentarios.tpl"}
 
 {include file="footer.tpl"}

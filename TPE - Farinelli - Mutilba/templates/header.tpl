@@ -11,6 +11,7 @@
     <script src="js/nav.js" type="text/javascript"></script>
     <script src="js/tabla.js" type="text/javascript"></script>
     <script src="js/contacto.js" type="text/javascript"></script>
+    <script src="js/comentarios.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
 
@@ -39,8 +40,10 @@
             <a class="menu_botones" href="productos">Productos</a>
             <a class="menu_botones" href="nosotros">Nosotros</a>
             <a class="menu_botones" href="contacto">Contacto</a>
-            <a class="menu_botones" href="abm">ABM</a>
             <a class="menu_botones" href="login">Login</a>
+            
+            <a class="menu_botones" href="abm">ABM</a>
+            
         </div>
     </nav>
 

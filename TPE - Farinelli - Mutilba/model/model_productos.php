@@ -33,12 +33,7 @@ class model_productos
         $sentencia = $this->db->prepare($borrar);
         $sentencia->execute(array($id));
     }
-    function deleteProductoCat($id)
-    {
-        $borrar = 'DELETE FROM producto WHERE id_categoria=? ';
-        $sentencia = $this->db->prepare($borrar);
-        $sentencia->execute(array($id));
-    }
+
 
     function actualizarProducto($nombre, $descripcion, $precio_1kg, $precio_500g, $precio_250g, $id_categoria, $id_producto)
     {
@@ -50,7 +45,7 @@ class model_productos
 
     function verProducto($id){
         //INNER JOIN comentarios ON producto.id_producto = comentarios.id_producto 
-        $sentencia = $this->db->prepare('SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE id_producto= ?');
+        $sentencia = $this->db->prepare('SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria  WHERE id_producto= ?');
         $sentencia->execute(array($id));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }

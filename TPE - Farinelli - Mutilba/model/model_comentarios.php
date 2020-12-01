@@ -15,12 +15,24 @@ class model_comentarios
         $insert = 'INSERT INTO comentarios ( comentario, puntaje, id_user, id_producto) VALUES ( ?,?,?,?);';
         $sentencia = $this->db->prepare($insert);
         $sentencia->execute(array($comentario, $puntaje, $id_user, $id_producto));
+
+        $lastId = $this->db->lastInsertId();
+
+        return  $lastId;  
+
     }
 
 
     function getComentarios($id)
     {
         $sentencia = $this->db->prepare('SELECT * FROM comentarios INNER JOIN users ON comentarios.id_user = users.id_user WHERE id_producto=?');
+        $sentencia->execute(array($id));
+
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+    function getComentarioIndividual($id)
+    {
+        $sentencia = $this->db->prepare('SELECT * FROM comentarios  WHERE id=?');
         $sentencia->execute(array($id));
 
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -32,14 +44,15 @@ class model_comentarios
         $sentencia->execute(array($id));
     }
 
-
-    /*
-    function getComentarios()
+    function getAllComentarios()
     {
-        $sentencia = $this->db->prepare('SELECT * FROM comentarios INNER JOIN producto ON comentarios.id_producto = producto.id_producto');
-        $sentencia->execute(array());
+        $sentencia = $this->db->prepare('SELECT * FROM comentarios ');
+        $sentencia->execute();
 
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    */
+    
+
+
+
 }

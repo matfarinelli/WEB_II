@@ -25,7 +25,7 @@ class controller_productos
     {
         $this->helper->getLoggedUserName();
         $frutos = $this->model->getTabla();
-        $categoria = $this->model_cat->getTabla(); // se pide al model que nos envie los datos y guardamos en un parámetro
+        $categoria = $this->model_cat->getTabla();
         $this->view->show_productos($frutos, $categoria);
     }
 
@@ -33,9 +33,7 @@ class controller_productos
     {
         $this->helper->getLoggedUserName();
         $id = $_POST['input_categoria'];
-
         $frutos = $this->model->verCategoria($id);
-        // se pide al model que nos envie los datos y guardamos en un parámetro
         $this->view->show_productos_ordenados($frutos);
     }
 
@@ -44,10 +42,9 @@ class controller_productos
         $this->helper->getLoggedUserName();
         $id = $params[':ID'];
         $producto_individual = $this->model->verProducto($id);
-        //$comentarios = $this->model_comentarios->getComentarios();
+  
         $comentarios = $this->model_comentarios->getComentarios($id);
-        //print_r($comentarios);
-        //die();
+      
         $this->view->verProducto($producto_individual, $comentarios);
     }
 
@@ -96,40 +93,8 @@ class controller_productos
         $this->view->show_agregar($frutos, $categoria);
     }
 
-    function addComentarios()
-    {
-        $this->helper->checkLogin();
-
-        $comentario = ($_POST['comentarios']);
-        $puntaje = ($_POST['puntaje']);
-        $id_user = ($_SESSION['ID_USUARIO']);
-        $id_producto = ($_POST['id_producto']);
-
-        /*
-        echo $comentario;
-        echo $puntaje;
-        echo $id_user;
-        echo $id_producto;
-        */
-
-        $this->model_comentarios->addComentario($comentario, $puntaje, $id_user, $id_producto); //recibe los datos del form.
-
-        $producto_individual = $this->model->verProducto($id_producto);
-        $comentarios = $this->model_comentarios->getComentarios($id_producto);
-        //$comentarios = $this->model_comentarios->getComentarios();
-        $this->view->verProducto($producto_individual, $comentarios);
-    }
+   
 
 
-    function borrarComentario($params = null)
-    {
-        $this->helper->checkAdmin();
-
-        $id_comentario = $params[':ID'];
-        $this->model_comentarios->borrarComentario($id_comentario);
-
-        //  $producto_individual = $this->model->verProducto($id);
-        //  $comentarios = $this->model_comentarios->getComentarios($id);
-        //  $this->view->verProducto($producto_individual, $comentarios);
-    }
+    
 }

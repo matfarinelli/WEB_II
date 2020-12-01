@@ -90,6 +90,7 @@ $r->addRoute("contacto", "GET", "controller_contacto", "contacto");
 $r->addRoute("agregar_comentarios", "POST", "controller_productos", "addComentarios");
 
 $r->addRoute("borrar_comentario/:ID", "GET", "controller_productos", "borrarComentario");
+$r->addRoute("eliminar_comentarios", "POST", "controller_productos", "eliminarComentario");
 
 
 //run
