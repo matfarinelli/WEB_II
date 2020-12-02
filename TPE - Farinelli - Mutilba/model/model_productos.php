@@ -54,4 +54,6 @@ class model_productos
         $sentencia->execute(array($id));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
+
+    
 }

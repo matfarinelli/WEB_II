@@ -9,25 +9,44 @@ class view_productos
 
     function __construct()
     {
+        $this->smarty = new Smarty();
+    }
+    function show_home()
+    {
+        //inicializacion Smarty
+
+        $this->smarty->display('./templates/home.tpl');
+    }
+
+    function show_nosotros()
+    {
+
+        $this->smarty->display('./templates/nosotros.tpl');
+    }
+    function show_contacto()
+    {
+
+
+        $this->smarty->display('./templates/contacto.tpl');
     }
 
     function show_productos($frutos, $cat)
     {
         //print_r($frutos);
         //inicializacion Smarty
-        $smarty = new Smarty();
+
         //asignar variables (assign)
-        $smarty->assign('frutos', $frutos);
-        $smarty->assign('categorias', $cat);
+        $this->smarty->assign('frutos', $frutos);
+        $this->smarty->assign('categorias', $cat);
         //renderizar template
-        $smarty->display('./templates/tabla_general.tpl');
+        $this->smarty->display('./templates/tabla_general.tpl');
     }
 
     function show_productos_ordenados($frutos)
     {
-        $smarty = new Smarty();
-        $smarty->assign('frutos', $frutos);
-        $smarty->display('./templates/tabla_ordenada.tpl');
+
+        $this->smarty->assign('frutos', $frutos);
+        $this->smarty->display('./templates/tabla_ordenada.tpl');
     }
 
     function volverABM()
@@ -38,23 +57,23 @@ class view_productos
     function show_agregar($frutos, $cat)
     {
         //print_r($frutos);
-        $smarty = new Smarty();
+
         //asignar variables (assign)
-        $smarty->assign('frutos', $frutos);
-        $smarty->assign('categorias', $cat);
+        $this->smarty->assign('frutos', $frutos);
+        $this->smarty->assign('categorias', $cat);
         //renderizar template
 
-        $smarty->display('./templates/abm_productos.tpl');
+        $this->smarty->display('./templates/abm_productos.tpl');
     }
 
     function verProducto($producto_individual, $comentarios)
     {
         //print_r($frutos);
-        $smarty = new Smarty();
+
         //asignar variables (assign)
-        $smarty->assign('comentarios', $comentarios);
-        $smarty->assign('producto_individual', $producto_individual);
+        $this->smarty->assign('comentarios', $comentarios);
+        $this->smarty->assign('producto_individual', $producto_individual);
         //renderizar template
-        $smarty->display('./templates/ver_producto.tpl');
+        $this->smarty->display('./templates/ver_producto.tpl');
     }
 }

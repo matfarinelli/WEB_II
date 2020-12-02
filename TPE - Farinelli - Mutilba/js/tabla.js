@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   
 
-    let id_producto = document.querySelector('#id_producto').value;
-    console.log(id_producto);
+    
 
 })

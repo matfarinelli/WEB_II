@@ -1,8 +1,7 @@
 <?php
-require_once 'control/controller_index.php';
+
 require_once 'control/controller_productos.php';
-require_once 'control/controller_nosotros.php';
-require_once 'control/controller_contacto.php';
+
 require_once 'control/controller_login.php';
 require_once 'control/controller_categorias.php';
 require_once 'control/controller_administrador.php';
@@ -20,7 +19,7 @@ $r = new Router();
 
 //home
 
-$r->addRoute("home", "GET", "controller_index", "home");
+$r->addRoute("home", "GET", "controller_productos", "home");
 
 //login  
 
@@ -80,10 +79,10 @@ $r->addRoute("actualizar_c", "POST", "controller_categorias", "actualizarCategor
 //$r->addRoute("actualizar/:ID", "GET", "controller_productos", "actualizarProducto");
 
 //nosotros
-$r->addRoute("nosotros", "GET", "controller_nosotros", "nosotros");
+$r->addRoute("nosotros", "GET", "controller_productos", "nosotros");
 
 //contacto
-$r->addRoute("contacto", "GET", "controller_contacto", "contacto");
+$r->addRoute("contacto", "GET", "controller_productos", "contacto");
 
 //comentarios
 

@@ -21,6 +21,22 @@ class controller_productos
         $this->helper = new authhelper();
     }
 
+    function home()
+    {
+        $this->helper->getLoggedUserName();
+        $this->view->show_home();
+    }
+    function nosotros()
+    {
+        $this->helper->getLoggedUserName();
+        $this->view->show_nosotros();
+    }
+    function contacto()
+    {
+        $this->helper->getLoggedUserName();
+        $this->view->show_contacto();
+    }
+
     function productos()
     {
         $this->helper->getLoggedUserName();
@@ -92,4 +108,10 @@ class controller_productos
         $categoria = $this->model_cat->getTabla();
         $this->view->show_agregar($frutos, $categoria);
     }
+
+
+  
+    
 }
+
+   

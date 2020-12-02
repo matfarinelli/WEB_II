@@ -2,20 +2,18 @@
 
 require_once './api/api_view.php';
 require_once './model/model_comentarios.php';
-require_once './helpers/authhelper.php';
+
 
 class api_frutos_controller
 {
     private $view;
     private $model;
-    private $helper;
     private $data;
 
     function __construct()
     {
         $this->view = new api_view();
         $this->model = new model_comentarios();
-        $this->helper = new authhelper();
         $this->data = file_get_contents("php://input");
     }
 
@@ -46,7 +44,7 @@ class api_frutos_controller
         if ($comentarios) {
             $this->view->response($comentarios, 200);
         } else {
-            $this->view->response("No existe el productos con el id={$id}", 404);
+            $this->view->response($comentarios, 404);
         }
     }
     function getComentarioIndividual($params = null)
