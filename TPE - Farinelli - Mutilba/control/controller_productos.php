@@ -23,6 +23,7 @@ class controller_productos
         $this->helper = new authhelper();
     }
 
+    // html extras
     function home()
     {
         $this->helper->getLoggedUserName();
@@ -73,7 +74,6 @@ class controller_productos
     *funcionalidades de admin
     */
 
-
     //vista editor
     function admin_abm()
     {
@@ -87,14 +87,27 @@ class controller_productos
     {
         $this->helper->checkAdmin();
 
-        $this->model->addProducto(($_POST['input_producto']), ($_POST['input_precio_1kg']), ($_POST['input_precio_500g']), ($_POST['input_precio_250g']), ($_POST['input_categoria'])); //recibe los datos del form.
+        $producto = $_POST['input_producto'];
+        $precio_1kg = $_POST['input_precio_1kg'];
+        $precio_500g = $_POST['input_precio_500g'];
+        $precio_250g = $_POST['input_precio_250g'];
+        $categoria = $_POST['input_categoria'];
+
+        if (
+            !empty($producto) &&
+            !empty($precio_1kg) &&
+            !empty($precio_500g) &&
+            !empty($precio_250g) &&
+            !empty($categoria)
+        ) {
+            $this->model->addProducto(($producto), ($precio_1kg), ($precio_500g), ($precio_250g), ($categoria));
+        }
         $this->view->volverABM();
     }
 
     function borrarProducto($params = null)
     {
         $this->helper->checkAdmin();
-
         $id = $params[':ID'];
         $this->model->borrarProducto($id);
         $this->view->volverABM();
@@ -102,6 +115,8 @@ class controller_productos
 
     function actualizarProducto($params = null)
     {
+        // hablar con Juan. Al ser post, no se deberia poder inyectar..?
+
         $this->helper->checkAdmin();
 
         $id = $_POST['input_id'];
@@ -112,7 +127,17 @@ class controller_productos
         $precio_250g = $_POST['input_precio_250g'];
         $categoria = $_POST['input_categoria'];
 
-        $this->model->actualizarProducto($producto, $descripcion, $precio_1kg, $precio_500g, $precio_250g, $categoria, $id);
+        if (
+            !empty($id) &&
+            !empty($producto) &&
+            !empty($precio_1kg) &&
+            !empty($precio_500g) &&
+            !empty($precio_250g) &&
+            !empty($categoria)
+        ) {
+            $this->model->actualizarProducto($producto, $descripcion, $precio_1kg, $precio_500g, $precio_250g, $categoria, $id);
+            // si no esta todo completo, el producto no se actualiza. No van datos vacios al a DDBB, salvo los permitidos
+        }
         $this->view->volverABM();
     }
 }

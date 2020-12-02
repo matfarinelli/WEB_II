@@ -58,6 +58,7 @@ class authhelper
 
         if ($_SESSION['ADMIN'] == false) {
             header("Location:" . BASE_URL . "productos");
+            die();
         }
     }
 }

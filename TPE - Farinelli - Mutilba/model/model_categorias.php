@@ -29,18 +29,17 @@ class model_categorias
 
     function borrarCategoria($id)
     {
-                
+
         $borrar = 'DELETE FROM categoria WHERE id_categoria=? ';
         $sentencia = $this->db->prepare($borrar);
         $sentencia->execute(array($id));
     }
 
-    
+
     function actualizarCategoria($categoria, $id_categoria)
     {
         $update = 'UPDATE categoria SET nombre_categoria = ?  WHERE id_categoria=?';
         $sentencia = $this->db->prepare($update);
         $sentencia->execute(array($categoria, $id_categoria));
     }
-    
 }

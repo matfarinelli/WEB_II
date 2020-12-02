@@ -33,24 +33,23 @@ class controller_categorias
 
     function admin_abm()
     {
-        $this->helper->checkAdmin();
-
         $categorias = $this->model->getTabla();
         $this->view->show_abm_categorias($categorias);
     }
 
     function addCategoria()
     {
-        $this->helper->checkAdmin();
-
-        $this->model->addCategoria(($_POST['input_categoria'])); //recibe los datos del form.
+        $this->helper->checkAdmin;
+        $nuevaCategoria = ($_POST['input_categoria']);
+        if (!empty($nuevaCategoria)) {
+            $this->model->addCategoria(($nuevaCategoria));
+        }
         $this->view->volverABM();
     }
 
     function borrarCategoria($params = null)
     {
         $this->helper->checkAdmin();
-
         $id = $params[':ID'];
         $this->model_p->borrarProductoPorCategoria($id); // primero limpio los productos
         $this->model->borrarCategoria($id);
@@ -60,11 +59,13 @@ class controller_categorias
     function actualizarCategoria($params = null)
     {
         $this->helper->checkAdmin();
-
         $id = $_POST['input_id'];
         $categoria = $_POST['input_categoria'];
 
-        $this->model->actualizarCategoria($categoria, $id);
+        if (isset($id) && !empty($categoria)) {
+            $this->model->actualizarCategoria($categoria, $id);
+        }
+
         $this->view->volverABM();
     }
 }

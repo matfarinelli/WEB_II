@@ -31,6 +31,7 @@ class model_productos
         $sentencia->execute(array($id));
     }
 
+    // para borrar productos cuando se borra la categoria
     function borrarProductoPorCategoria($id)
     {
         $borrar = 'DELETE FROM producto WHERE id_categoria=? ';

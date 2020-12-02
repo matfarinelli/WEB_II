@@ -3,6 +3,7 @@
 require_once './view/view_login.php';
 require_once './model/model_login.php';
 require_once './helpers/authhelper.php';
+require_once './model/model_comentarios.php';
 
 class controller_administrador
 {
@@ -23,7 +24,6 @@ class controller_administrador
     {
         $this->helper->checkAdmin();
         $usuario = $this->model->getUsuarios();
-        // para limpiar url
         $this->view->show_usuarios($usuario);
     }
 
@@ -43,6 +43,7 @@ class controller_administrador
         $this->model->designar_administrador($id);
         $this->limpiarURL();
     }
+
 
     function limpiarURL()
     {

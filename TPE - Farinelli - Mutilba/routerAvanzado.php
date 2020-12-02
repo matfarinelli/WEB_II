@@ -80,7 +80,7 @@ $r->addRoute("abm_categorias", "GET", "controller_categorias", "admin_abm"); //v
 
 $r->addRoute("add_c", "POST", "controller_categorias", "addCategoria"); //ejecuta funcion agregar
 
-$r->addRoute("borrar_c/:ID", "GET", "controller_categorias", "borrarCategoria"); // VER POR INYECTION
+$r->addRoute("borrar_c/:ID", "GET", "controller_categorias", "borrarCategoria"); 
 
 $r->addRoute("actualizar_c", "POST", "controller_categorias", "actualizarCategoria");
 
