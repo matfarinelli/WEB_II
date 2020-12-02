@@ -2,7 +2,7 @@
 <div class="div_tabla">
 
     <form action="">
-  
+
 
         <table>
 
@@ -48,9 +48,6 @@
             <button type="button" id="agregar_comentario">Agregar</button>
         </div>
     </form>
-
-     
-
 
 </div>
 

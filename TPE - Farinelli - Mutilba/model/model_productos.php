@@ -59,4 +59,24 @@ class model_productos
         $sentencia->execute(array($id));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
+
+    // busqueda
+
+    function filtrar($nombre_producto, $descripcion, $peso, $precio)
+    {
+
+        /*$consulta_precios = 'WHERE ( ? LIKE "%"?"%" OR nombre IS NULL )
+        AND (descripcion LIKE "%"?"%" OR descripcion IS NULL)';*/
+
+        $consulta = 'SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE (( nombre LIKE "%"?"%" OR nombre IS NULL )
+        AND (descripcion LIKE "%"?"%" OR descripcion IS NULL) AND( ?  >= ? OR precio_kilo IS NULL ))';
+
+        /*
+        AND WHERE ( precio_kilo , precio_medio, precio_cuarto <=? OR precio_kilo IS NULL, precio_medio IS NULL, precio_cuarto IS NULL)
+        */
+
+        $sentencia = $this->db->prepare($consulta);
+        $sentencia->execute(array($nombre_producto, $descripcion, $peso, $precio));
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
 }

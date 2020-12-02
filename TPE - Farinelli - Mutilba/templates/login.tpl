@@ -13,7 +13,7 @@
                     <button type="submit" class="menu_botones">Login</button>
                     <p>{$mensaje}</p>
                 </form>
-                 <a href='registrarse'> Registrarse  </a> 
+                <a href='registrarse'> Registrarse </a>
             </div>
 
             <div class="imagen_contacto">

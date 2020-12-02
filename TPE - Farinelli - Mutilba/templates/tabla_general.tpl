@@ -2,13 +2,13 @@
 
 <div class="div_botones">
     <form action="verProductoPorCategoria" method="POST">
-    <select name="input_categoria">
-    {foreach from=$categorias item=cat}
-        <option value='{$cat->id_categoria}'>{$cat->nombre_categoria}</option>
-    {/foreach}
-    </select>
-    <button type="submit"> Ver categoria seleccionada</button>
-    <button><a href='verCategoria'>Ver todas las Categorias </a></button>
+        <select name="input_categoria">
+            {foreach from=$categorias item=cat}
+                <option value='{$cat->id_categoria}'>{$cat->nombre_categoria}</option>
+            {/foreach}
+        </select>
+        <button type="submit"> Ver categoria seleccionada</button>
+        <button><a href='verCategoria'>Ver todas las Categorias </a></button>
     </form>
 </div>
 
@@ -34,5 +34,26 @@
         </tbody>
     </table>
 </div>
+
+
+<div class="contacto">
+    <form action="filtrar" method="GET">
+        <label for="">Producto</label>
+        <input type="text" name="input_filtro_producto">
+        <label for="">Descripcion</label>
+        <input type="text" name="input_filtro_descripcion">
+        <label for="">Precio por peso</label>
+        <input type="text" name="input_filtro_precio">
+
+        <select name="input_filtro_peso">
+            <option value="precio_kilo">Precio kilo</option>
+            <option value="precio_medio">Precio medio kilo</option>
+            <option value="precio_cuarto">Precio cuarto</option>
+        </select>
+
+        <button type="submit"> Filtrar</button>
+    </form>
+</div>
+
 
 {include file="footer.tpl"}

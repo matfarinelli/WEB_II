@@ -53,7 +53,6 @@ $r->addRoute("registrarse", "GET", "controller_login", "registrarse");
 
 $r->addRoute("input_registro", "POST", "controller_login", "input_registro");
 
-
 //productos con admin
 
 $r->addRoute("abm", "GET", "controller_productos", "admin_abm"); //vista admin - ABM
@@ -89,6 +88,13 @@ $r->addRoute("actualizar_c", "POST", "controller_categorias", "actualizarCategor
 $r->addRoute("borrar_comentario/:ID", "GET", "controller_productos", "borrarComentario");
 
 $r->addRoute("eliminar_comentarios", "POST", "controller_productos", "eliminarComentario");
+
+
+// filtro
+
+$r->addRoute("filtrar", "GET", "controller_productos", "filtrar");
+
+
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-01 02:14:03
+/* Smarty version 3.1.34-dev-7, created on 2020-12-02 22:00:26
   from 'C:\xampp\htdocs\matias\!! WEB II\TPE - Repositorio\WEB_II\TPE - Farinelli - Mutilba\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fc598db1e4950_13681024',
+  'unifunc' => 'content_5fc8006adf8078_43320806',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '98f381553ea79214ad6e6332538f3c8b363b1190' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matias\\!! WEB II\\TPE - Repositorio\\WEB_II\\TPE - Farinelli - Mutilba\\templates\\login.tpl',
-      1 => 1606694814,
+      1 => 1606942822,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5fc598db1e4950_13681024 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc8006adf8078_43320806 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,7 +40,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     <p><?php echo $_smarty_tpl->tpl_vars['mensaje']->value;?>
 </p>
                 </form>
-                 <a href='registrarse'> Registrarse  </a> 
+                <a href='registrarse'> Registrarse </a>
             </div>
 
             <div class="imagen_contacto">
