@@ -7,7 +7,6 @@ require_once './helpers/authhelper.php';
 
 class controller_categorias
 {
-
     private $view;
     private $model;
     private $model_p;
@@ -20,33 +19,41 @@ class controller_categorias
         $this->helper = new authhelper();
     }
 
+    // sin login
     function categorias()
     {
         $this->helper->getLoggedUserName();
-        $categorias = $this->model->getTabla(); // se pide al model que nos envie los datos y guardamos en un parámetro
+        $categorias = $this->model->getTabla();
         $this->view->show_categorias($categorias);
+    }
+
+    /*
+    * funcionalidades de admin
+    */
+
+    function admin_abm()
+    {
+        $this->helper->checkAdmin();
+
+        $categorias = $this->model->getTabla();
+        $this->view->show_abm_categorias($categorias);
     }
 
     function addCategoria()
     {
         $this->helper->checkAdmin();
+
         $this->model->addCategoria(($_POST['input_categoria'])); //recibe los datos del form.
         $this->view->volverABM();
-    }
-
-    function admin_abm()
-    {
-        $this->helper->checkAdmin();
-        $categorias = $this->model->getTabla();
-        $this->view->show_abm_categorias($categorias);
     }
 
     function borrarCategoria($params = null)
     {
         $this->helper->checkAdmin();
+
         $id = $params[':ID'];
-        $this->model_p->deleteProductoCat($id);
-        $this->model->deleteCategoria($id);
+        $this->model_p->borrarProductoPorCategoria($id); // primero limpio los productos
+        $this->model->borrarCategoria($id);
         $this->view->volverABM();
     }
 

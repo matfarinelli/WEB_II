@@ -19,7 +19,25 @@ $r = new Router();
 
 //home
 
+//$r->addRoute("", "GET", "controller_productos", "home"); 
+
 $r->addRoute("home", "GET", "controller_productos", "home");
+
+//nosotros
+$r->addRoute("nosotros", "GET", "controller_productos", "nosotros");
+
+//contacto
+$r->addRoute("contacto", "GET", "controller_productos", "contacto");
+
+// sin login
+
+$r->addRoute("productos", "GET", "controller_productos", "productos"); //tabla sin form
+
+$r->addRoute("ver/:ID", "GET", "controller_productos", "verProducto");
+
+$r->addRoute("verProductoPorCategoria", "POST", "controller_productos", "productosPorCategoria");
+
+$r->addRoute("verCategoria", "GET", "controller_categorias", "categorias");
 
 //login  
 
@@ -31,9 +49,9 @@ $r->addRoute("logout", "GET", "controller_login", "logout");
 
 //registracion
 
-$r->addRoute("registrarse", "GET" , "controller_login" , "registrarse" );
+$r->addRoute("registrarse", "GET", "controller_login", "registrarse");
 
-$r->addRoute("input_registro", "POST" , "controller_login" , "input_registro" );
+$r->addRoute("input_registro", "POST", "controller_login", "input_registro");
 
 
 //productos con admin
@@ -42,7 +60,7 @@ $r->addRoute("abm", "GET", "controller_productos", "admin_abm"); //vista admin -
 
 $r->addRoute("add_p", "POST", "controller_productos", "addProducto"); //ejecuta funcion agregar
 
-$r->addRoute("borrar_p/:ID", "GET", "controller_productos", "borrarProducto"); 
+$r->addRoute("borrar_p/:ID", "GET", "controller_productos", "borrarProducto");
 
 $r->addRoute("editar/:ID", "GET", "controller_productos", "show_form_editar");
 
@@ -50,21 +68,11 @@ $r->addRoute("actualizar_p", "POST", "controller_productos", "actualizarProducto
 
 // controller de admin
 
-$r->addRoute("abm_admin", "GET" , "controller_administrador", "show_abm_admin" );
+$r->addRoute("abm_admin", "GET", "controller_administrador", "show_abm_admin");
 
-$r->addRoute("borrar_u/:ID", "GET", "controller_administrador", "borrarUsuario"); 
+$r->addRoute("borrar_u/:ID", "GET", "controller_administrador", "borrarUsuario");
 
-$r->addRoute("editar_u/:ID", "GET", "controller_administrador", "designar_administrador"); 
-
-// sin login
-
-$r->addRoute("productos", "GET", "controller_productos", "productos"); //tabla sin form
-
-$r->addRoute("ver/:ID", "GET", "controller_productos", "verProducto");
-
-$r->addRoute("verCategoria", "GET", "controller_categorias", "categorias");
-
-$r->addRoute("verProductoPorCategoria", "POST", "controller_productos", "productosPorCategoria");
+$r->addRoute("editar_u/:ID", "GET", "controller_administrador", "designar_administrador");
 
 //categorias
 
@@ -78,21 +86,11 @@ $r->addRoute("actualizar_c", "POST", "controller_categorias", "actualizarCategor
 
 //$r->addRoute("actualizar/:ID", "GET", "controller_productos", "actualizarProducto");
 
-//nosotros
-$r->addRoute("nosotros", "GET", "controller_productos", "nosotros");
-
-//contacto
-$r->addRoute("contacto", "GET", "controller_productos", "contacto");
 
 //comentarios
-
-
 
 $r->addRoute("borrar_comentario/:ID", "GET", "controller_productos", "borrarComentario");
 $r->addRoute("eliminar_comentarios", "POST", "controller_productos", "eliminarComentario");
 
-
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
-
-

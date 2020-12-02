@@ -3,7 +3,6 @@
 require_once './api/api_view.php';
 require_once './model/model_comentarios.php';
 
-
 class api_frutos_controller
 {
     private $view;

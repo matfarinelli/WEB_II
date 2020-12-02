@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-29 23:53:25
+/* Smarty version 3.1.34-dev-7, created on 2020-12-02 14:15:37
   from 'C:\xampp\htdocs\matias\!! WEB II\TPE - Repositorio\WEB_II\TPE - Farinelli - Mutilba\templates\abm_usuarios.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fc42665d76649_59759643',
+  'unifunc' => 'content_5fc7937934e206_64539467',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cca78293a65745bbd81b94834593f02843dbf9bd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matias\\!! WEB II\\TPE - Repositorio\\WEB_II\\TPE - Farinelli - Mutilba\\templates\\abm_usuarios.tpl',
-      1 => 1606673598,
+      1 => 1606873374,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5fc42665d76649_59759643 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc7937934e206_64539467 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -64,7 +64,7 @@ $_smarty_tpl->tpl_vars['user']->do_else = false;
 ">Eliminar</a></button></td>
                     <td><button><a href="editar_u/<?php echo $_smarty_tpl->tpl_vars['user']->value->usuario;?>
 ">Administrador</a></button></td>
-                    <td><label class="switch"> <input type="checkbox" id="boton_adm" checked value="1"> <span class="slider round" ></span> </label></td>
+                   
                 </tr>
             <?php
 }

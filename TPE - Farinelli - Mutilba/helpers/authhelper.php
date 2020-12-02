@@ -6,7 +6,7 @@ class authhelper
     function __construct()
     {
     }
-    //array de sesion
+    //array con datos de inicio de sesion
     function login($userFromDB)
     {
         session_start();

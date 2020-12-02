@@ -27,7 +27,7 @@ class model_categorias
     }
 
 
-    function deleteCategoria($id)
+    function borrarCategoria($id)
     {
                 
         $borrar = 'DELETE FROM categoria WHERE id_categoria=? ';

@@ -37,7 +37,6 @@ class controller_login
 
                     $this->helper->login($userFromDB);
                     header("Location:" . BASE_URL . "abm");
-                    
                 } else {
                     $this->view->show_login("Contraseña incorrecta");
                 }
@@ -51,7 +50,6 @@ class controller_login
     {
         $this->helper->logout();
     }
-
 
     function registrarse()
     {
@@ -77,8 +75,6 @@ class controller_login
                 $userFromDB = $this->model->getUser($usuario);
 
                 $this->helper->login($userFromDB);
-
-               
 
                 header("Location:" . BASE_URL . "productos");
             }

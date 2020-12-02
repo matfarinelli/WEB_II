@@ -18,8 +18,7 @@ class model_comentarios
 
         $lastId = $this->db->lastInsertId();
 
-        return  $lastId;  
-
+        return  $lastId;
     }
 
 
@@ -51,8 +50,9 @@ class model_comentarios
 
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    
 
-
-
+    function borrarComentarioPorUsuario($id){
+        $sentencia = $this->db->prepare('DELETE FROM comentarios WHERE id_user=?');
+        $sentencia->execute(array($id));
+    }
 }
