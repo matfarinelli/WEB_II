@@ -20,10 +20,10 @@
     {if isset($smarty.session.USUARIO)}
         <div class="boton_sesion">
             <p>{$smarty.session.USUARIO}</p>
-    
             <a class="" href="logout">X</a>
         </div>
     {/if}
+
     <div class="boton_sesion">
         <input id="id_session" type="hidden" value="{$smarty.session.ID_USUARIO}">
         <input id="id_admin" type="hidden" value="{$smarty.session.ADMIN}">
@@ -44,7 +44,6 @@
             <a class="menu_botones" href="nosotros">Nosotros</a>
             <a class="menu_botones" href="contacto">Contacto</a>
             <a class="menu_botones" href="login">Login</a>
-
             <a class="menu_botones" href="abm">ABM</a>
 
         </div>

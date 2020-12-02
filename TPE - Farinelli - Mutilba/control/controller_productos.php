@@ -102,7 +102,7 @@ class controller_productos
         ) {
             $this->model->addProducto(($producto), ($precio_1kg), ($precio_500g), ($precio_250g), ($categoria));
         }
-        $this->view->volverABM();
+        $this->volverABM();
     }
 
     function borrarProducto($params = null)
@@ -110,7 +110,7 @@ class controller_productos
         $this->helper->checkAdmin();
         $id = $params[':ID'];
         $this->model->borrarProducto($id);
-        $this->view->volverABM();
+        $this->volverABM();
     }
 
     function actualizarProducto($params = null)
@@ -138,6 +138,11 @@ class controller_productos
             $this->model->actualizarProducto($producto, $descripcion, $precio_1kg, $precio_500g, $precio_250g, $categoria, $id);
             // si no esta todo completo, el producto no se actualiza. No van datos vacios al a DDBB, salvo los permitidos
         }
-        $this->view->volverABM();
+        $this->volverABM();
+    }
+
+    function volverABM()
+    {
+        header("Location:" . BASE_URL . "abm");
     }
 }

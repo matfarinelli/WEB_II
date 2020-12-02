@@ -307,7 +307,7 @@ th {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgba(20, 2, 2, 0.068);
+    background-color: rgba(39, 4, 4, 0.116);
     height: 40%;
     border-radius: 30px;
 }
@@ -323,6 +323,9 @@ th {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgba(39, 4, 4, 0.055);
 }
 
 .contacto>form>input,

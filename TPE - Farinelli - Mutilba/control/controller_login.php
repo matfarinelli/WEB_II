@@ -62,22 +62,25 @@ class controller_login
         $mail = $_POST['mail'];
         $contrasena = $_POST['contrasena'];
 
-        $hash = password_hash($contrasena, PASSWORD_DEFAULT);
+        if (!empty($usuario) && !empty($mail) && !empty($contrasena)) {
+            $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-        if (isset($usuario)) {
-            $userFromDB = $this->model->getUser($usuario);
-
-            if ((isset($userFromDB)) && ($userFromDB)) {
-                $this->view->show_login("Usuario ya registrado");
-            } else {
-                $this->model->registrarse($usuario, $mail, $hash);
-
+            if (isset($usuario)) {
                 $userFromDB = $this->model->getUser($usuario);
 
-                $this->helper->login($userFromDB);
+                if ((isset($userFromDB)) && ($userFromDB)) {
+                    $this->view->show_login("Usuario ya registrado");
+                } else {
+                    $this->model->registrarse($usuario, $mail, $hash);
 
-                header("Location:" . BASE_URL . "productos");
+                    $userFromDB = $this->model->getUser($usuario);
+
+                    $this->helper->login($userFromDB);
+
+                    header("Location:" . BASE_URL . "productos");
+                }
             }
-        }
+        } else
+            header("Location:" . BASE_URL . "registrarse");
     }
 }

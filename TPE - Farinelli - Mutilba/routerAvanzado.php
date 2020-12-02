@@ -80,16 +80,14 @@ $r->addRoute("abm_categorias", "GET", "controller_categorias", "admin_abm"); //v
 
 $r->addRoute("add_c", "POST", "controller_categorias", "addCategoria"); //ejecuta funcion agregar
 
-$r->addRoute("borrar_c/:ID", "GET", "controller_categorias", "borrarCategoria"); 
+$r->addRoute("borrar_c/:ID", "GET", "controller_categorias", "borrarCategoria");
 
 $r->addRoute("actualizar_c", "POST", "controller_categorias", "actualizarCategoria");
-
-//$r->addRoute("actualizar/:ID", "GET", "controller_productos", "actualizarProducto");
-
 
 //comentarios
 
 $r->addRoute("borrar_comentario/:ID", "GET", "controller_productos", "borrarComentario");
+
 $r->addRoute("eliminar_comentarios", "POST", "controller_productos", "eliminarComentario");
 
 //run

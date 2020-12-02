@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-02 14:14:51
+/* Smarty version 3.1.34-dev-7, created on 2020-12-02 20:58:19
   from 'C:\xampp\htdocs\matias\!! WEB II\TPE - Repositorio\WEB_II\TPE - Farinelli - Mutilba\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fc7934b304596_99503944',
+  'unifunc' => 'content_5fc7f1db211c68_84805134',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '76d854722c852bca8258f6bf14203124246aba56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matias\\!! WEB II\\TPE - Repositorio\\WEB_II\\TPE - Farinelli - Mutilba\\templates\\header.tpl',
-      1 => 1606865762,
+      1 => 1606938953,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fc7934b304596_99503944 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc7f1db211c68_84805134 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="es">
 
@@ -55,10 +55,10 @@ function content_5fc7934b304596_99503944 (Smarty_Internal_Template $_smarty_tpl)
         <div class="boton_sesion">
             <p><?php echo $_SESSION['USUARIO'];?>
 </p>
-    
             <a class="" href="logout">X</a>
         </div>
     <?php }?>
+
     <div class="boton_sesion">
         <input id="id_session" type="hidden" value="<?php echo $_SESSION['ID_USUARIO'];?>
 ">
@@ -81,7 +81,6 @@ function content_5fc7934b304596_99503944 (Smarty_Internal_Template $_smarty_tpl)
             <a class="menu_botones" href="nosotros">Nosotros</a>
             <a class="menu_botones" href="contacto">Contacto</a>
             <a class="menu_botones" href="login">Login</a>
-
             <a class="menu_botones" href="abm">ABM</a>
 
         </div>

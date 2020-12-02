@@ -2,7 +2,6 @@
 
 require_once "./libs/smarty/Smarty.class.php";
 
-
 class view_productos
 {
     private $smarty;
@@ -41,11 +40,6 @@ class view_productos
     {
         $this->smarty->assign('frutos', $frutos);
         $this->smarty->display('./templates/tabla_ordenada.tpl');
-    }
-
-    function volverABM()
-    {
-        header("Location:" . BASE_URL . "abm");
     }
 
     function show_agregar($frutos, $cat)

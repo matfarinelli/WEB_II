@@ -23,8 +23,8 @@ class controller_administrador
     function show_abm_admin()
     {
         $this->helper->checkAdmin();
-        $usuario = $this->model->getUsuarios();
-        $this->view->show_usuarios($usuario);
+        $usuarios = $this->model->getUsuarios();
+        $this->view->show_usuarios($usuarios);
     }
 
     function borrarUsuario($params = null)
@@ -33,7 +33,7 @@ class controller_administrador
         $id = $params[':ID'];
         $this->model_comentario->borrarComentarioPorUsuario($id);
         $this->model->borrarUsuario($id);
-        $this->limpiarURL();
+        $this->volverABMAdmin();
     }
 
     function designar_administrador($params = null)
@@ -41,11 +41,10 @@ class controller_administrador
         $this->helper->checkAdmin();
         $id = $params[':ID'];
         $this->model->designar_administrador($id);
-        $this->limpiarURL();
+        $this->volverABMAdmin();
     }
 
-
-    function limpiarURL()
+    function volverABMAdmin()
     {
         header("Location:" . BASE_URL . "abm_admin");
     }
