@@ -48,7 +48,6 @@ class model_productos
 
     function verProducto($id)
     {
-        //INNER JOIN comentarios ON producto.id_producto = comentarios.id_producto 
         $sentencia = $this->db->prepare('SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria  WHERE id_producto= ?');
         $sentencia->execute(array($id));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -64,7 +63,6 @@ class model_productos
 
     function filtrar($nombre_producto, $descripcion, $precio_kilo, $precio_medio, $precio_cuarto)
     {
-
         $consulta = 'SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE (( nombre LIKE "%"?"%" OR nombre IS NULL) AND 
         (descripcion LIKE "%"?"%" OR descripcion IS NULL) AND
         (((precio_kilo <=? OR precio_kilo IS NULL)  OR 

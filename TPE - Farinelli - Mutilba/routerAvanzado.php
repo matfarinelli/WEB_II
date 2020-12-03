@@ -19,7 +19,7 @@ $r = new Router();
 
 //home
 
-//$r->addRoute("", "GET", "controller_productos", "home"); 
+//$r->addRoute("", "GET", "controller_productos", "home");
 
 $r->addRoute("home", "GET", "controller_productos", "home");
 
@@ -88,7 +88,6 @@ $r->addRoute("actualizar_c", "POST", "controller_categorias", "actualizarCategor
 $r->addRoute("borrar_comentario/:ID", "GET", "controller_productos", "borrarComentario");
 
 $r->addRoute("eliminar_comentarios", "POST", "controller_productos", "eliminarComentario");
-
 
 // filtro
 

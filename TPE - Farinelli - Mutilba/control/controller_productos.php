@@ -91,8 +91,6 @@ class controller_productos
     }
 
 
-
-
     /*
     *funcionalidades de admin
     */

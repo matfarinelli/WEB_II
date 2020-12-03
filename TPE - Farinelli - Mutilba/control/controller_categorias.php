@@ -33,13 +33,14 @@ class controller_categorias
 
     function admin_abm()
     {
+        $this->helper->checkAdmin();
         $categorias = $this->model->getTabla();
         $this->view->show_abm_categorias($categorias);
     }
 
     function addCategoria()
     {
-        $this->helper->checkAdmin;
+        $this->helper->checkAdmin();
         $nuevaCategoria = ($_POST['input_categoria']);
         if (!empty($nuevaCategoria)) {
             $this->model->addCategoria(($nuevaCategoria));

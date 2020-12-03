@@ -12,7 +12,6 @@ class view_productos
     }
     function show_home()
     {
-        //inicializacion Smarty
         $this->smarty->display('./templates/home.tpl');
     }
 
@@ -27,12 +26,8 @@ class view_productos
 
     function show_productos($frutos, $cat)
     {
-        //print_r($frutos);
-        //inicializacion Smarty
-        //asignar variables (assign)
         $this->smarty->assign('frutos', $frutos);
         $this->smarty->assign('categorias', $cat);
-        //renderizar template
         $this->smarty->display('./templates/tabla_general.tpl');
     }
 
@@ -44,23 +39,15 @@ class view_productos
 
     function show_agregar($frutos, $cat)
     {
-        //print_r($frutos);
-
-        //asignar variables (assign)
         $this->smarty->assign('frutos', $frutos);
         $this->smarty->assign('categorias', $cat);
-        //renderizar template
-
         $this->smarty->display('./templates/abm_productos.tpl');
     }
 
     function verProducto($producto_individual, $comentarios)
     {
-        //print_r($frutos);
-        //asignar variables (assign)
         $this->smarty->assign('comentarios', $comentarios);
         $this->smarty->assign('producto_individual', $producto_individual);
-        //renderizar template
         $this->smarty->display('./templates/ver_producto.tpl');
     }
 }
