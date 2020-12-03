@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-03 00:42:35
+/* Smarty version 3.1.34-dev-7, created on 2020-12-03 01:19:30
   from 'C:\xampp\htdocs\matias\!! WEB II\TPE - Repositorio\WEB_II\TPE - Farinelli - Mutilba\templates\tabla_general.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fc8266bbf0a68_53695936',
+  'unifunc' => 'content_5fc82f121937d5_10651675',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '47e6fa76cb5be546672142146ae7ef0b7a1e1665' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matias\\!! WEB II\\TPE - Repositorio\\WEB_II\\TPE - Farinelli - Mutilba\\templates\\tabla_general.tpl',
-      1 => 1606952248,
+      1 => 1606954634,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5fc8266bbf0a68_53695936 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc82f121937d5_10651675 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -90,13 +90,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <label for="">Descripcion</label>
         <input type="text" name="input_filtro_descripcion">
         <label for="">Precio por peso</label>
-        <input type="text" name="input_filtro_precio">
-
-        <select name="input_filtro_peso">
-            <option value="precio_kilo">Precio kilo</option>
-            <option value="precio_medio">Precio medio kilo</option>
-            <option value="precio_cuarto">Precio cuarto</option>
-        </select>
+        <input type="number" name="input_filtro_precio">
 
         <button type="submit"> Filtrar</button>
     </form>

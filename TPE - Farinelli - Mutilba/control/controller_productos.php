@@ -76,20 +76,21 @@ class controller_productos
 
         $producto = $_GET['input_filtro_producto'];
         $descripcion = $_GET['input_filtro_descripcion'];
-        //$precio_kilo = $_GET['input_filtro_precio'];
-        $peso = $_GET['input_filtro_peso'];
         $precio = $_GET['input_filtro_precio'];
-        //$precio = 200;
 
-        $resultados = $this->model->filtrar($producto, $descripcion, $peso ,$precio);
-        // print_r($producto);
-        // print_r($descripcion);
-        // print_r($precio);
-        // print_r($peso);
-        //print_r($resultados);
-        // die();
+        if (empty($precio)) {
+            $precio = 90000;
+        }
+
+        $precio_kilo = $precio;
+        $precio_medio = $precio;
+        $precio_cuarto = $precio;
+
+        $resultados = $this->model->filtrar($producto, $descripcion, $precio_kilo, $precio_medio, $precio_cuarto);
         $resultados = $this->view->show_productos_ordenados($resultados);
     }
+
+
 
 
     /*

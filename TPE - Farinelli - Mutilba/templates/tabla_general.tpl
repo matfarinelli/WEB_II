@@ -43,13 +43,7 @@
         <label for="">Descripcion</label>
         <input type="text" name="input_filtro_descripcion">
         <label for="">Precio por peso</label>
-        <input type="text" name="input_filtro_precio">
-
-        <select name="input_filtro_peso">
-            <option value="precio_kilo">Precio kilo</option>
-            <option value="precio_medio">Precio medio kilo</option>
-            <option value="precio_cuarto">Precio cuarto</option>
-        </select>
+        <input type="number" name="input_filtro_precio">
 
         <button type="submit"> Filtrar</button>
     </form>

@@ -62,21 +62,17 @@ class model_productos
 
     // busqueda
 
-    function filtrar($nombre_producto, $descripcion, $peso, $precio)
+    function filtrar($nombre_producto, $descripcion, $precio_kilo, $precio_medio, $precio_cuarto)
     {
 
-        /*$consulta_precios = 'WHERE ( ? LIKE "%"?"%" OR nombre IS NULL )
-        AND (descripcion LIKE "%"?"%" OR descripcion IS NULL)';*/
-
-        $consulta = 'SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE (( nombre LIKE "%"?"%" OR nombre IS NULL )
-        AND (descripcion LIKE "%"?"%" OR descripcion IS NULL) AND( ?  >= ? OR precio_kilo IS NULL ))';
-
-        /*
-        AND WHERE ( precio_kilo , precio_medio, precio_cuarto <=? OR precio_kilo IS NULL, precio_medio IS NULL, precio_cuarto IS NULL)
-        */
+        $consulta = 'SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE (( nombre LIKE "%"?"%" OR nombre IS NULL) AND 
+        (descripcion LIKE "%"?"%" OR descripcion IS NULL) AND
+        (((precio_kilo <=? OR precio_kilo IS NULL)  OR 
+        (precio_medio <=? OR precio_medio IS NULL) OR
+        (precio_cuarto <=? OR precio_cuarto IS NULL))))';
 
         $sentencia = $this->db->prepare($consulta);
-        $sentencia->execute(array($nombre_producto, $descripcion, $peso, $precio));
+        $sentencia->execute(array($nombre_producto, $descripcion, $precio_kilo, $precio_medio, $precio_cuarto));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 }
