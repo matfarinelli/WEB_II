@@ -64,7 +64,7 @@ class model_productos
     function filtrar($nombre_producto, $descripcion, $precio_kilo, $precio_medio, $precio_cuarto)
     {
         $consulta = 'SELECT * FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria WHERE (( nombre LIKE "%"?"%" OR nombre IS NULL) AND 
-        (descripcion LIKE "%"?"%" OR descripcion IS NULL) AND
+        (descripcion LIKE "%"?"%") AND
         (((precio_kilo <=? OR precio_kilo IS NULL)  OR 
         (precio_medio <=? OR precio_medio IS NULL) OR
         (precio_cuarto <=? OR precio_cuarto IS NULL))))';
